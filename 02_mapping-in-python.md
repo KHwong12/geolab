@@ -14,8 +14,6 @@ jupyter:
 
 # Lab 02 - Mapping in Python
 
-<a href=\"https://colab.research.google.com/github/KHwong12/geolab" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>
-
 **Author**: Kenneth Wong (khwongk12@gmail.com)
 
 **Last Edited**: TODO
@@ -25,7 +23,7 @@ jupyter:
 ## Setup
 
 
-```
+```python
 !pip3 install geopandas contextily shapely matplotlib
 ```
 
