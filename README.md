@@ -1,6 +1,7 @@
 # Geolab - Intro to Python for spatial data
 
-<a href=\"https://colab.research.google.com/github/KHwong12/geolab" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/KHwong12/geolab)
+
 
 This repo is a trilogy of notebooks I prepare for the workshop **Introduction to Python language and Google Colab for spatial data visualization and analysis**, a Professional Geospatial Workshop organised by the Geospatial Lab of Hong Kong (see the [poster](https://csdigeolab.gov.hk/en/upcoming-events/professional-geospatial-talk-1015-1022) of the workshop for details).
 
