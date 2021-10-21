@@ -15,13 +15,11 @@ jupyter:
 # Lab 02 - Mapping in Python
 
 **Author**: Kenneth Wong (khwongk12@gmail.com)
-
 **Last Edited**: TODO
 
 ---
 
 ## Setup
-
 
 ```python
 !pip3 install geopandas contextily shapely matplotlib
@@ -206,3 +204,110 @@ ctx.add_basemap(ax, crs=data.crs, source=ctx.providers.Stamen.Watercolor)
 
 ```
 
+---
+
+## Create Interactive Maps
+
+**[folium](https://github.com/python-visualization/folium)** is a Python library for interactive mapping based on **leaflet.js**.
+
+```python
+!pipe install folium
+```
+
+```python
+import folium
+```
+
+### Creating a simple interactive web-map
+
+Let’s first see how we can do a simple interactive web-map without any data on it. We just visualize OpenStreetMap on a specific location of the a world.
+
+First thing that we need to do is to create [a Map instance](https://python-visualization.github.io/folium/modules.html#folium.folium.Map)
+
+```python
+# Create a Map instance
+m = folium.Map(location = [22.35, 114.14], zoom_start = 11, control_scale = True)
+```
+
+The first parameter `location` takes a pair of lat, lon values as list as an input which will determine where the map will be positioned when user opens up the map. `zoom_start` -parameter adjusts the default zoom-level for the map (the higher the number the closer the zoom is). `control_scale` defines if map should have a scalebar or not.
+
+Let’s see what our map looks like:
+
+```python
+m
+```
+
+### Import data
+
+```python
+BASKETBALLCOURT_URL = https://geodata.gov.hk/gs/api/v1.0.0/geoDataQuery?q=%7Bv%3A%221%2E0%2E0%22%2Cid%3Afb65b9aa-05d9-4768-a8b1-148072180ba1%2Clang%3A%22ENG%22%7D
+
+basketball_court = gpd.read_file(BASKETBALLCOURT_URL)
+```
+
+
+### Adding layers to the map
+
+The spatial data we just imported needs to be converted to the format where folium understand. (Think of it as converting a video file from `.mov` to `.mp4` such that the video player could play with it)
+
+Now we have our data stored as **GeoJSON** format, which basically contains the data as text in a similar way that it would be written in the `.geojson` -file.
+
+```python
+basketball_court_gjson = folium.features.GeoJson(BASKETBALLCOURT_URL, name = "basketball court")
+```
+
+Add it to the map
+
+```python
+# Add points to the map instance
+basketball_court_gjson.add_to(m)
+
+m
+```
+
+### Layer control
+
+We can also add a `LayerControl` object on our map, which allows the user to control which map layers are visible.
+
+```python
+# Create a layer control object and add it to our map instance
+folium.LayerControl().add_to(m)
+
+#Show map
+m
+```
+
+### Clustered point map
+
+Let’s visualize the address points (locations of transport stations in Helsinki) on top of the choropleth map using clustered markers using folium’s MarkerCluster class.
+
+```python
+from folium.plugins import MarkerCluster
+```
+
+```python
+# Create a Map instance
+m = folium.Map(location = [22.35, 114.14], zoom_start = 11, control_scale = True)
+```
+
+```python
+# Following this example: https://github.com/python-visualization/folium/blob/master/examples/MarkerCluster.ipynb
+
+# Get x and y coordinates for each point
+basketball_court["x"] = basketball_court["geometry"].apply(lambda geom: geom.x)
+basketball_court["y"] = basketball_court["geometry"].apply(lambda geom: geom.y)
+
+# Create a list of coordinate pairs
+basketball_court_locations = list(zip(basketball_court["y"], basketball_court["x"]))
+```
+
+```python
+# Create a folium marker cluster
+marker_cluster = MarkerCluster(basketball_court_locations)
+
+# Add marker cluster to map
+marker_cluster.add_to(m)
+
+# Show map
+m
+```

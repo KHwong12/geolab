@@ -12,7 +12,25 @@ jupyter:
     name: python3
 ---
 
-# Introduction to pandas
+# Lab 01 - Introduction to pandas
+
+**Author**: Kenneth Wong (khwongk12@gmail.com)
+**Last Edited**: TODO
+
+---
+
+## Setup
+
+```python
+!pip3 install pandas geopandas
+```
+
+```python
+import pandas as pd
+import geopandas as gpd
+```
+
+---
 
 learn how to **read and explore tabular data files in Python**. We will focus on using [pandas](https://pandas.pydata.org/pandas-docs/stable/) which is an open-source package for data analysis in Python. pandas is an excellent toolkit for working with **real world data** that often have a tabular structure (rows and columns).
 

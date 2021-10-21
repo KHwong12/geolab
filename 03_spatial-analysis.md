@@ -15,13 +15,13 @@ jupyter:
 # Lab 03 - Fundamental Spatial Analysis
 
 **Author**: Kenneth Wong (khwongk12@gmail.com)
+**Last Edited**: TODO
 
-**Last Edited**: 2021-10-18
-
+---
 
 ## Setup
 
-```
+```python
 !pip3 install geopandas matplotlib contextily folium
 ```
 

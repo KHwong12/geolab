@@ -12,7 +12,20 @@ jupyter:
     name: python3
 ---
 
-# Jupyter Notebooks
+# Lab 00 - Introduction to Python and Jupyter Notebooks
+
+**Author**: Kenneth Wong (khwongk12@gmail.com)
+**Last Edited**: TODO
+
+---
+
+## Setup
+
+```python
+!pip3 install numpy pandas matplotlib
+```
+
+---
 
 This session will cover the basics of Python, and introduce elements that will help you get familiar with Python as an interactive computational environment for exploring data. The material is presented in an interactive environment that runs within your web browser, called a Jupyter Notebook.  It allows presentation of text and graphics to be combined with Python code that can be run interactively, with the results appearing inline.  We are looking at a Jupyter notebook now.  Note that Jupyter is a relatively recent name for this so sometimes you may still see it referred to as an IPython noteboook.  Jupyter is just the new version of IPython notebooks, but now also supports a variety of other languages and tools.
 
