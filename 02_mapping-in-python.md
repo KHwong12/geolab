@@ -50,4 +50,64 @@ Read more: https://datacarpentry.org/organization-geospatial/02-intro-vector-dat
 
 ---
 
+## Import spatial data to Jupyter Notebook
+
+### Getting spatial data from web
+
+For this notebook, we are using data in *Shapefile* format representing distributions of specific beautifully colored fish species called Damselfish and the country borders of Europe.
+
+We're going to use the `wget` terminal command to download a file from a url. We then use `unzip` to unzip the archive into a folder of the same name. The `-o` option is used to overwrite the folder if it already exists We then us `ls` to see the contents of the folder.
+
+```python
+!wget https://github.com/Automating-GIS-processes/FEC/raw/master/data/DAMSELFISH.zip -O fish_data.zip
+!unzip -o fish_data.zip -d fish_data
+!ls fish_data
+```
+
+### Introduction to Geopandas
+
+**Geopandas** (http://geopandas.org/) makes it possible to work with geospatial data in Python in a relatively easy way. Geopandas combines the capabilities of the data analysis library [**pandas**](https://pandas.pydata.org/pandas-docs/stable/) with other packages like [**shapely**](https://shapely.readthedocs.io/en/stable/manual.html) and [**fiona**](https://fiona.readthedocs.io/en/latest/manual.html) for managing spatial data.
+
+Read more about **Geopandas**: https://automating-gis-processes.github.io/site/master/notebooks/L2/geopandas-basics.html
+
+Typically reading the data into Python is the first step of the analysis pipeline. In GIS, there exists various dataformats such as [Shapefile](https://en.wikipedia.org/wiki/Shapefile), [GeoJSON](https://en.wikipedia.org/wiki/GeoJSON), [KML](https://en.wikipedia.org/wiki/Keyhole_Markup_Language), and [GPKG](https://en.wikipedia.org/wiki/GeoPackage) that are probably the most common vector data formats. **Geopandas** is capable of reading data from all of these formats (plus many more). Reading spatial data can be done easily with geopandas using `gpd.read_file()` -function:
+
+```python
+# path to shapefile
+filepath = "fish_data/DAMSELFISH_distributions.shp"
+
+# Read file using gpd.read_file()
+data = gpd.read_file(filepath)
+```
+
+### Quick view of data
+
+
+```python
+#look at top entries - looks like a pandas dataframe
+data.head()
+```
+
+```python
+data.columns
+```
+
+Note that the data are in (lon, lat) ordering --- this is because the convention is (x, y) for computers, but (lat, lon) for coordinates. This is a frequent cause of error.
+
+```python
+data['geometry']
+```
+
+```python
+# geopandas adds useful attributes to the geodataframe, such as the ability to get bounds
+# of all the geometry data
+data.bounds
+```
+
+```python
+# similary, we can get attributes such as boundary
+data.boundary
+```
+
+---
 
