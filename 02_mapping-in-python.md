@@ -206,3 +206,55 @@ ctx.add_basemap(ax, crs=data.crs, source=ctx.providers.Stamen.Watercolor)
 
 ```
 
+---
+
+## Create Interactive Maps
+
+**[folium](https://github.com/python-visualization/folium)** is a Python library for interactive mapping based on **leaflet.js**.
+
+```python
+!pipe install folium
+```
+
+```python
+import folium
+```
+
+### Creating a simple interactive web-map
+
+Let’s first see how we can do a simple interactive web-map without any data on it. We just visualize OpenStreetMap on a specific location of the a world.
+
+First thing that we need to do is to create [a Map instance](https://python-visualization.github.io/folium/modules.html#folium.folium.Map)
+
+```python
+# Create a Map instance
+m = folium.Map(location = [0, 0], zoom_start = 3, control_scale = True)
+```
+
+The first parameter `location` takes a pair of lat, lon values as list as an input which will determine where the map will be positioned when user opens up the map. `zoom_start` -parameter adjusts the default zoom-level for the map (the higher the number the closer the zoom is). `control_scale` defines if map should have a scalebar or not.
+
+Let’s see what our map looks like:
+
+```python
+m
+```
+
+### Adding layers to the map
+
+The spatial data we just imported needs to be converted to the format where folium understand. (Think of it as converting a video file from `.mov` to `.mp4` such that the video player could play with it)
+
+Now we have our data stored as **GeoJSON** format, which basically contains the data as text in a similar way that it would be written in the `.geojson` -file.
+
+```python
+data_gjson = folium.features.GeoJson(data, name = "fish_data")
+```
+
+Add it to the map
+
+```python
+# Add points to the map instance
+data_gjson.add_to(m)
+
+m
+```
+
