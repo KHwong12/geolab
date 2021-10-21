@@ -111,3 +111,98 @@ data.boundary
 
 ---
 
+## Create static maps
+
+### Plotting data on maps
+
+**Geopandas** provides a useful `.plot()` function which creates a *matplotlib figure* and returns an axes object. There's a ton of additional libraries that provide more plotting functionality, and we'll explore a few of them here. There's no "correct" set of libraries to use for GIS in python, and it's up to you to figure out which ones fit the best into your workflow.
+
+The `cmap` option to the `.plot()` function allows you to pass in a [matplotlib colormap name](https://matplotlib.org/gallery/color/colormap_reference.html), which are collections of colors used to visualize data
+
+```python
+# we can use the built-in geopandas plot function to visualize
+ax = data.plot(figsize = (10,5), alpha = 0.6, cmap = 'Set2')
+```
+
+### Changing symbology of spatial data
+
+currently the colors are assigned arbitrarily. However, we can also use colors to encode information.
+
+Let's first use colors to categorize by endangerment status. To do so, we pass the `column` argument to `plot()`. For reference, we also set `legend=True`
+
+```python
+ax = data.plot(figsize=(10,5), alpha=0.6, cmap='Set2', column='category', legend=True)
+```
+
+
+Another common use of colors to encode data is to represent numerical data in an area with colors. This is known as a [choropleth](https://en.wikipedia.org/wiki/Choropleth_map).
+
+Let's use this to encode the areas of each region
+
+```python
+#then pass the area column as an argument
+ax = data.plot(figsize=(10,5), alpha=0.6, column='shape_Area', legend=True)
+```
+
+The colorbar legend is too big relative to the figure. We'll have to do some manual adjustments. There are tools to create axes grids for colorbars available in:
+
+https://matplotlib.org/3.1.0/tutorials/toolkits/axes_grid.html
+
+```python
+from mpl_toolkits.axes_grid1 import make_axes_locatable
+fig, ax = plt.subplots(1, 1)
+divider = make_axes_locatable(ax) #makes it so you can append to the axes
+
+
+#put another axes to the right of it, at 5% of the total width with 0.1 points of padding in between
+cax = divider.append_axes("right", size="5%", pad=0.1)
+
+# note that you have to specify both ax and cax as arguments for it to work
+data.plot(figsize=(10,5), alpha=0.6, column='shape_Area', 
+          legend=True, ax=ax, cax=cax)
+```
+
+### Adding Basemap
+
+[**Contextily**](https://github.com/geopandas/contextily) is a library for creating basemaps. It pulls data from a host of different basemap providers - see [documentation](https://contextily.readthedocs.io/en/latest/) for more details.
+
+```python
+ax = data.plot(figsize=(10,5), alpha=0.6, cmap='Set2', column='category')
+
+# now we add a basemap. ctx finds a basemap for a background from
+# an online repository.
+# It assumes the data is in web mercator (epsg:3857) unless you specify otherwise
+ctx.add_basemap(ax, crs = data.crs)
+```
+
+```python
+# we can set bounds using matplotlib
+ax = data.plot(figsize = (10,5), alpha = 0.6, cmap = 'Set2', column = 'category')
+
+ax.set_xlim([-180,180])
+ax.set_ylim([-85,85])
+
+ctx.add_basemap(ax, crs = data.crs)
+```
+
+![](https://contextily.readthedocs.io/en/latest/_images/tiles.png)
+
+
+
+```python
+# to look at all of the different providers, check:
+ctx.providers
+```
+
+```python
+ax = data.plot(figsize=(10,5), alpha=0.6, cmap='Set2', column='category')
+
+ax.set_xlim([-180,180])
+ax.set_ylim([-85,85])
+
+# to specify the type of basemap, specify the source argument
+# the syntax is ctx.providers.{provider name}.{provider style}
+ctx.add_basemap(ax, crs=data.crs, source=ctx.providers.Stamen.Watercolor)
+
+```
+
