@@ -74,6 +74,11 @@ collection_pt.plot(figsize = (15,15), alpha = 0.6, column = 'District', legend =
 collection_pt_KT = collection_pt[collection_pt['District'] == 'KWUN TONG']
 ```
 
+```python
+collection_pt_KT.plot()
+```
+
+
 ### Compute area within a distance from objects (Buffer)
 
 >  What are the area *within 200 m straight line distance* from the points?
@@ -81,6 +86,15 @@ collection_pt_KT = collection_pt[collection_pt['District'] == 'KWUN TONG']
 ```python
 collection_pt_KT_buffer = collection_pt_KT.to_crs(2326).buffer(200)
 ```
+
+```python
+collection_pt_KT_buffer.plot()
+```
+
+```python
+collection_pt_KT_buffer.plot(color = 'green', markersize = 5, alpha = 0.25)
+```
+
 
 ### Create static map
 
