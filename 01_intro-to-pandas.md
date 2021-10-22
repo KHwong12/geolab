@@ -32,11 +32,13 @@ import geopandas as gpd
 
 ---
 
-learn how to **read and explore tabular data files in Python**. We will focus on using [pandas](https://pandas.pydata.org/pandas-docs/stable/) which is an open-source package for data analysis in Python. pandas is an excellent toolkit for working with **real world data** that often have a tabular structure (rows and columns).
+## Introduction
+
+This notebook serves as a guide on how to **read and explore tabular data files in Python**. We will focus on using [pandas](https://pandas.pydata.org/pandas-docs/stable/) which is an open-source package for data analysis in Python. pandas is an excellent toolkit for working with **real world data** that often have a tabular structure (rows and columns).
 
 We will first get familiar with the **pandas data structures**: *DataFrame* and *Series*:
 
-![pandas data structures](https://geo-python-site.readthedocs.io/en/latest/_images/pandas-structures.png))
+![pandas data structures](https://geo-python-site.readthedocs.io/en/latest/_images/pandas-structures.png)
 
 - **pandas DataFrame** (a 2-dimensional data structure) is used for storing and mainpulating table-like data (data with rows and columns) in Python. You can think of a pandas DataFrame as a programmable spreadsheet. 
 - **pandas Series** (a 1-dimensional data structure) is used for storing and manipulating a sequence of values. pandas Series is kind of like a list, but more clever. One row or one column in a pandas DataFrame is actually a pandas Series. 
@@ -50,7 +52,7 @@ As you can see, both DataFrames and Series in pandas have an index that can be u
 
 ## The dataset: weather statistics
 
-Our input data is a text file containing weather observations from Kumpula, Helsinki, Finland retrieved from [NOAA](https://www.ncdc.noaa.gov/)*:
+Our input data is a text file containing weather observations from Kumpula, Helsinki, Finland retrieved from [NOAA](https://www.ncdc.noaa.gov/):
 
 - File name: [Kumpula-June-2016-w-metadata.txt](Kumpula-June-2016-w-metadata.txt) (have a look at the file before reading it in using pandas!)
 - The file is available in the binder and CSC notebook instances, under the L5 folder 
