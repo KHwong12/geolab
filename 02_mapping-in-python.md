@@ -211,7 +211,7 @@ ctx.add_basemap(ax, crs=data.crs, source=ctx.providers.Stamen.Watercolor)
 **[folium](https://github.com/python-visualization/folium)** is a Python library for interactive mapping based on **leaflet.js**.
 
 ```python
-!pipe install folium
+!pip3 install folium
 ```
 
 ```python
@@ -240,7 +240,7 @@ m
 ### Import data
 
 ```python
-BASKETBALLCOURT_URL = https://geodata.gov.hk/gs/api/v1.0.0/geoDataQuery?q=%7Bv%3A%221%2E0%2E0%22%2Cid%3Afb65b9aa-05d9-4768-a8b1-148072180ba1%2Clang%3A%22ENG%22%7D
+BASKETBALLCOURT_URL = 'https://geodata.gov.hk/gs/api/v1.0.0/geoDataQuery?q=%7Bv%3A%221%2E0%2E0%22%2Cid%3Afb65b9aa-05d9-4768-a8b1-148072180ba1%2Clang%3A%22ENG%22%7D'
 
 basketball_court = gpd.read_file(BASKETBALLCOURT_URL)
 ```
