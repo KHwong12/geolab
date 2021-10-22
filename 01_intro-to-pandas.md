@@ -71,7 +71,7 @@ import pandas as pd
 
 ```python
 # Read the file using pandas
-data = pd.read_csv('https://raw.githubusercontent.com/geo-python/site/master/source/notebooks/L5/Kumpula-June-2016-w-metadata.txt', skiprows = 8))
+data = pd.read_csv('https://raw.githubusercontent.com/geo-python/site/master/source/notebooks/L5/Kumpula-June-2016-w-metadata.txt', skiprows = 8)
 ```
 
 `pandas.read_csv()` is a general function for reading data files separated by commas, spaces, or other common separators. 
