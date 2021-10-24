@@ -79,7 +79,7 @@ On a mac, you can launch the terminal app. Once you have a shell, navigate (chan
 
 Save the notebook you need to somewhere in the disk, like Downloads, or some other location (but just remember where you put it). At the command prompt, `cd` to that location, and type:
 
-```
+```sh .noeval
 jupyter notebook
 ```
 
@@ -87,7 +87,7 @@ jupyter notebook
 
 Once you launch the Jupyter Notebook, and the Notebook opens up in your browser, you will be looking at a directory of the folder you were in when you launched the notebook.  you can either load an existing notebook if you see one in the directory, or create a new one.  If you changed directory to the correct location, you should already see this notebook in the directory in the Jupyter Notebook:
 
-```
+```sh .noeval
 XXX.ipynb
 ```
 
@@ -107,8 +107,6 @@ Text cells (like this one) can be edited by double-clicking on them. They're wri
 
 After you edit a text cell, click the "run cell" button at the top that looks like ▶| or hold down `shift` + `return` to confirm any changes. (Try not to delete the instructions of the lab.)
 
-
-
 ### Code cells
 
 Other cells contain code in the Python 3 language. Running a code cell will execute all of the code it contains.
@@ -126,8 +124,6 @@ print("\N{WAVING HAND SIGN}, \N{EARTH GLOBE ASIA-AUSTRALIA}!")
 ```
 
 The fundamental building block of Python code is an expression. Cells can contain multiple lines with multiple expressions. When you run a cell, the lines of code are executed in the order in which they appear. Every print expression prints a line. Run the next cell and notice the order of the output.
-
-
 
 ```python
 print("First this line is printed,")
@@ -230,7 +226,6 @@ The line in the next cell subtracts.  Its value is what you'd expect.  Run it.
 
 ```python
 3.25 - 1.5
-
 ```
 
 Many basic arithmetic operations are built into Python. [This chapter of the Data 8 course web book](http://www.inferentialthinking.com/chapters/03/1/expressions.html) describes the most common arithmetic operators used. The common operator that differs from typical math notation is `**`, which raises one number to the power of the other. So, `2**3` stands for $2^3$ and evaluates to 8.
