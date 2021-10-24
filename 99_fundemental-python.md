@@ -14,11 +14,9 @@ jupyter:
 
 # Basis - Introduction to Jupyter notebook and Python
 
-**Author**: Kenneth Wong (khwongk12@gmail.com)
+**Author**: Kenneth Wong (kennethwong12.netlify.app)
 
-**Last Edited**: 2021-10-18
-
-
+**Last Edited**: 2021-10-25
 
 ```python
 ## For checking python environment

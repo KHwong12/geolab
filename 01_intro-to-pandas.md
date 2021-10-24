@@ -14,8 +14,9 @@ jupyter:
 
 # Lab 01 - Introduction to pandas
 
-**Author**: Kenneth Wong (khwongk12@gmail.com)
-**Last Edited**: TODO
+**Author**: Kenneth Wong (kennethwong12.netlify.app)
+
+**Last Edited**: 2021-10-25
 
 ---
 

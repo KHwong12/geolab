@@ -14,8 +14,9 @@ jupyter:
 
 # Lab 02 - Mapping in Python
 
-**Author**: Kenneth Wong (khwongk12@gmail.com)
-**Last Edited**: TODO
+**Author**: Kenneth Wong (kennethwong12.netlify.app)
+
+**Last Edited**: 2021-10-25
 
 ---
 
