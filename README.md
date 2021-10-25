@@ -51,5 +51,9 @@ jupytext --to notebook THEMDNOTEBOOK.md
 
 ## References
 
-TODO
+The open source and open science culture helped me countless number of times to prepare the materials. In particular, part of the notebooks in this workshop are inspired by the following sources:
 
+- The *Geo-python* course (https://geo-python-site.readthedocs.io/en/latest/index.html) by University of Helsinki
+- *Data 8: The Foundations of Data Science* (https://github.com/data-8/materials-x19) by UC Berkeley
+- BWSI Remote Sensing course (https://github.com/bwsi-hadr)
+- *CP255 Urban Informatics and Visualization* by UC Berkeley
