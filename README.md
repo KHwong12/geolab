@@ -2,10 +2,15 @@
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/KHwong12/geolab)
 
-
 This repo is a set of notebooks I prepare for the workshop **Introduction to Python language and Google Colab for spatial data visualization and analysis**, a Professional Geospatial Workshop organised by the Geospatial Lab of Hong Kong (see the [poster](https://csdigeolab.gov.hk/en/upcoming-events/professional-geospatial-talk-1015-1022) of the workshop for details).
 
 This workshop aims to let attendances without prior knowledge in coding grasp a taste of Python. Therefore, not much theoretical knowledges are covered. The rundown workshop is organised in a way for attendances to **make maps immediately**. In that way, their motivation could stay high (they could see the product, easily) when need to learn less-fun aspects of spatial data afterwards.
+
+Slides of the workshop are also available [in this Google Drive folder](https://drive.google.com/drive/u/2/folders/1DZJ5LMNjSOw59Ji9b1KHaV6hyxqQSqfv).
+
+![cover](https://user-images.githubusercontent.com/29334677/138679694-25f51ea5-bc88-46a6-bdd6-4ae6ea8c5856.jpg)
+
+![slide-sample-1](https://user-images.githubusercontent.com/29334677/138679719-e095a3dd-088b-4b99-8518-dd328e635519.jpg)
 
 The notebooks (tentatively) covers the following:
 
